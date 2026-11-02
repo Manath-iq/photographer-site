@@ -1,4 +1,4 @@
-@layer reset, base, layout, components, responsive;
+@layer reset, base, layout, components, motion, responsive;
 
 @layer reset {
   *, *::before, *::after { box-sizing: border-box; }
@@ -69,14 +69,12 @@
   .fan-photo--three { --rotation: 3deg; left: 50%; top: 0; z-index: 3; }
   .fan-photo--four { --rotation: 12deg; left: 67%; top: 12px; z-index: 2; }
   .fan-photo--five { --rotation: 21deg; width: 19%; left: 82%; top: 60px; z-index: 1; }
-  .fan-photo:hover { z-index: 5; transform: translate(-50%,-15px) rotate(calc(var(--rotation) * .6)); box-shadow: 0 16px 40px #24262022; }
   .fan-photo:focus-visible { z-index: 6; }
   .paper-tape { position: absolute; z-index: 4; top: -13px; left: 45%; height: 28px; width: 105px; background: #ddcba58c; transform: rotate(-7deg); clip-path: polygon(2% 0,98% 3%,96% 20%,100% 50%,97% 69%,99% 100%,0 98%,3% 75%,0 40%); pointer-events: none; }
   .fan-note { position: absolute; bottom: 31px; left: 0; z-index: 6; color: var(--wine); font-family: var(--serif); font-size: 26px; font-style: italic; line-height: .9; transform: rotate(-8deg); }
   .fan-note svg { position: absolute; width: 90px; height: 60px; top: -53px; left: 57px; fill: none; stroke: currentColor; stroke-width: 1.2; }
   .round-note { position: absolute; right: 7px; bottom: 30px; width: 105px; height: 105px; z-index: 6; background: var(--wine); color: var(--paper); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.15; font-size: 12px; text-align: center; transform: rotate(10deg); transition: transform 500ms var(--ease); }
   .round-note > span:last-child { font-size: 25px; }
-  .round-note:hover { transform: rotate(0); }
   .hero-bottom { border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; min-height: 115px; gap: 24px; padding: 12px 0 28px; }
   .hero-bottom p { font-size: 12px; line-height: 1.65; max-width: 300px; }
   .hero-coordinate { font-size: 9px; letter-spacing: .15em; color: var(--quiet); margin-left: -90px; }
@@ -109,10 +107,9 @@
   .story-image { display: block; width: 100%; padding: 0; position: relative; overflow: clip; background: var(--line); }
   .story-image img { width: 100%; aspect-ratio: .76; object-fit: cover; transition: transform 1100ms var(--ease); }
   .story-card--small .story-image img { aspect-ratio: .73; }
-  .story-image:hover img { transform: scale(1.035); }
   .story-open { position: absolute; right: 18px; bottom: 20px; padding: 12px 17px; background: var(--paper); font-size: 10px; display: flex; align-items: center; gap: 20px; transform: translateY(8px); opacity: 0; transition: transform 400ms var(--ease),opacity 400ms var(--ease); }
   .story-open > span { font-size: 20px; }
-  .story-image:hover .story-open, .story-image:focus-visible .story-open { transform: translateY(0); opacity: 1; }
+  .story-image:focus-visible .story-open { transform: translateY(0); opacity: 1; }
   .story-handnote { position: absolute; top: 30px; left: 22px; color: var(--paper-light); font-family: var(--serif); font-size: clamp(20px,2.3vw,37px); font-style: italic; transform: rotate(-8deg); text-shadow: 0 1px 12px #0002; }
   .story-meta { display: flex; justify-content: space-between; gap: 16px; margin-top: 23px; }
   .story-meta .small-label { font-size: 8px; letter-spacing: .1em; color: var(--quiet); }
@@ -189,7 +186,7 @@
   .gallery-grid figcaption { margin-top: 8px; font-size: 9px; color: var(--quiet); letter-spacing: .1em; }
   .gallery-footer { border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 45px; padding-top: 30px; }
   .gallery-footer p { font-family: var(--serif); font-size: 32px; font-style: italic; }
-  .gallery-footer button { color: var(--wine); font-size: 15px; padding: 10px; }
+  .gallery-footer a { color: var(--wine); font-size: 15px; padding: 10px 0; display: inline-flex; align-items: center; gap: 16px; }
   .design-dialog { position: fixed; inset: auto 22px 22px auto; width: min(330px,calc(100% - 44px)); margin: 0; padding: 25px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); }
   .design-dialog::backdrop { background: #24262030; backdrop-filter: none; }
   .design-dialog-top { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 25px; }

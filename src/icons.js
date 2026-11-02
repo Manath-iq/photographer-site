@@ -1,0 +1,3 @@
+export function icon(name = 'arrow-up-right') {
+  return `<svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-${name}" /></svg>`;
+}
